@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>brievengenerator</h1>
+
+
+<form action="" method="POST" id="formid">
+<label>First name</label> <br>     <input type="text" name="firstname" id="fistname" value="Joran"> <br>
+<label>Last name</label> <br> <input type="text" name="lastname" id="lastname" value="Joran"> <br>
+<label>Email</label>      <br>  <input type="text" name="email" id="email" value="joranreijnders@ziggo.nl"> <br>
+<label>Activity</label> <br>  <input type="text" name="activity" id="activity" value="soccer"> <br>
+<label>Date</label>     <br>   <input type="text" name="date" id="date" value="2 january"> <br>
+<label>Time</label>      <br>   <input type="text" name="time" id="time" value="12:15"> <br>
+
+<button onclick="createletter();">Create letter</button>
+</form>
+
+    <div id="brief">
+
+    Dear {firstname} {lastname},  <br>
+    Thank you for signing in with: {email} <br>
+    You have applied to come join us with with {activity} on {date} at {time}
+
+    </div>
+    <div id="output"></div>
+
+<script>
+
+    function createletter() {
+        var brief = document.getElementById("brief").innerHTML;
+    }
+    function printToDiv(formid, output){
+          f = document.getElementById(fId);
+          i = f.getElementsByTagName('input');
+          iTxt = Array();
+          k = 0;
+          out = '';
+          for (j = 0; j < i.length; j++){
+            if (i[j].type == 'text'){
+              iTxt[k] = i[j];
+              k++;
+            }
+          }
+          for (n =0; n < iTxt.length; n++){
+            out += "<b>"+iTxt[n].placeholder+":</b> "+iTxt[n].value+"<br />\n";
+          }
+          div = document.getElementById(dId);
+          div.innerHTML = out;
+
+    }
+
+
+    document.getElementById ("output").innerHTML = brief;
+</script>
+
+<style>
+
+#brief {
+    visibility: hidden;
+}
+
+#output {
+    width: 50vw;
+    height: 20vw;
+}
+
+</style>
+
+
+
+</body>
+</html>
